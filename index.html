@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Websocket</title>
+</head>
+<body>
+    
+
+    <script>
+        const websocket = new WebSocket("ws://localhost:8000");
+
+        // various event
+
+        websocket.addEventListener('open', () => {
+            console.log("We are connected");
+
+            websocket.send('Hi this is client side message');
+        })
+
+        websocket.addEventListener('message', ({data}) => {
+            console.log(JSON.parse(data));
+        })
+    </script>
+</body>
+</html>
